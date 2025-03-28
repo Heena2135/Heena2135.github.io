@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Save the Pollinators!</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+        .poster {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            margin: auto;
+        }
+        h1 {
+            color: #2c5e1a;
+        }
+        p {
+            font-size: 18px;
+        }
+        .highlight {
+            color: #e74c3c;
+            font-weight: bold;
+        }
+        .cta {
+            background: #2c5e1a;
+            color: white;
+            padding: 15px;
+            border-radius: 5px;
+            display: inline-block;
+            text-decoration: none;
+            margin-top: 20px;
+            cursor: pointer;
+        }
+        .cta:hover {
+            background: #4caf50;
+        }
+        .popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+        .popup ul {
+            text-align: center;
+        }
+        .popup button {
+            background: #2c5e1a;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        .popup button:hover {
+            background: #4caf50;
+        }
+        .qr-code {
+            margin-top: 20px;
+        }
+        .team {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+        .page {
+            display: none;
+        }
+        .active {
+            display: block;
+        }
+    </style>
+     <script>
+        function showPage(pageId) {
+            document.querySelectorAll(".page").forEach(page => page.classList.remove("active"));
+            document.getElementById(pageId).classList.add("active");
+        }
+    
+        function showPopup() {
+            document.getElementById("popup").style.display = "block";
+        }
+    
+        function closePopup() {
+            document.getElementById("popup").style.display = "none";
+            showPage('page1'); // Redirect to Page 1 after closing
+        }
+    
+        function goToImpactPage() {
+            closePopup(); // Close the pop-up
+            showPage('page3'); // Transition to Page 3
+        }
+    </script>
+</head>
+<body>
+    <div id="page1" class="page active">
+        <div class="poster">
+            <h1>🌿 Save the Pollinators! 🐝🦋</h1>
+            <div class="qr-code">
+                <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://www.savepollinators.org" alt="QR Code">
+                <p>Scan to learn more!</p>
+            </div>
+            <div class="team">
+                <p>Created by:</p>
+                <p>🌼 Alison Vickers | 🌿 Sehath Amarasena |<br>
+                    🌻 Eishmanjot Kaur  | 🌸 Heena Patel</p>
+                </div>
+                <script>
+                    function checkAnswer(answer) {
+                        if (answer === 'yes') {
+                            alert("Great! Let's learn how you can make a difference.");
+                        } else if (answer === 'no') {
+                            alert("No worries! You can still make a difference.");
+                        }
+                       // Automatically move to the next page after the alert
+                       showPage('page2');
+                    }
+                
+                </script>
+                <h2>Did you know <b> 58% </b> pollinators are declining in Ontario?</h2>
+                <button class="answer" onclick="checkAnswer('yes')">Yes</button>
+                <button class="answer" onclick="checkAnswer('no')">No</button>
+            </div>
+        </div>
+    </div>
+    
+    <div id="page2" class="page">
+        <div class="poster">
+            <p>Bees, butterflies, and other pollinators are <span class="highlight">essential for biodiversity</span>, but their numbers are declining rapidly.</p>
+            <p>Without them, many plants—including the food we eat—will struggle to survive.</p>
+            <h2>🌼 How Can You Help?</h2>
+            <p>✅ <b>Plant native flowers</b> – Provide nectar and pollen sources.</p>
+            <p>✅ <b>Grow a variety of blooms</b> – Different pollinators need different flowers.</p>
+            <p>✅ <b>Avoid pesticides</b> – Keep pollinators safe from harmful chemicals.</p>
+            <p>✅ <b>Create a bee-friendly space</b> – Leave wild areas for shelter and nesting.</p>
+            <p><b>🐝 Every garden makes a difference! </b>Start planting today to help save pollinators!</p>
+            <a onclick="showPopup()" class="cta">🌸 Start Planting Now! 🌱</a>
+            
+        </div>
+    </div>
+    
+    <div id="popup" class="popup">
+        <h2>🌟 Thank You for Helping Pollinators! 🌟</h2>
+        <p>Here are some great places to get flower seeds:</p>
+        <ul>
+            <li>🌱 Local Garden Centers</li>
+            <li>🌷 Online Seed Stores</li>
+            <li>🌻 Community Plant Exchanges</li>
+            <li>🌿 Native Plant Nurseries</li>
+        </ul>
+        <button class="cta" onclick="goToImpactPage()">See Your Impact ➡️</button>
+    </div>
+    </script>
+    <!-- Page 3 -->
+    <div id="page3" class="page">
+        <div class="poster">
+            <h2>🌟 Your Impact 🌟</h2>
+            <p>By taking action, you are helping to:</p>
+            <ul>
+                <li>🌼 Increase pollinator populations by providing food and shelter.</li>
+                <li>🌿 Improve biodiversity in your local environment.</li>
+                <li>🌻 Ensure the survival of plants that depend on pollinators.</li>
+                <li>🌸 Support the production of fruits, vegetables, and nuts.</li>
+            </ul>
+            <p><b>Did you know?</b> A single bee can pollinate up to <b>5,000 flowers</b> in a single day!</p>
+            <p>Imagine the difference your garden can make over time!</p>
+            <h3>Thank you for making a difference! 🐝🌼</h3>
+            <button onclick="closePopup()">Close</button>
+        </div>
+    </div>
+</body>
+</html>
